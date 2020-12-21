@@ -1,0 +1,21 @@
+value1 = input("1. değeri giriniz: ")
+value2 = input("2. değeri giriniz: ")
+value3 = input("3. değeri giriniz: ")        # Döngünün gözünü seveyim. İlk ders kullanmadık diye copy paste yaptık artık :)
+value4 = input("4. değeri giriniz: ")
+value5 = input("5. değeri giriniz: ")
+print(f"""
+Girdiğiniz 
+1. değer: {value1} 
+2. değer: {value2}     
+3. değer: {value3}
+4. değer: {value4} 
+5. değer: {value5}
+olarak kaydedilmiştir.""")     # Kodları okumak kolay olsun diye print içine string ifade yazdırırken alt satırları da kullanabilmek için üç tırnak kullandım.
+print('''
+Girdiğiniz değerlerin türleri aşağıda listelenmiştir:
+1. değerin türü {}
+2. değerin türü {}
+3. değerin türü {}
+4. değerin türü {}
+5. değerin türü {}
+'''.format(type(value1),type(value2),type(value3),type(value4),type(value5))) # hepsinin string olacağını bile bile neden böyle birşey yapıyorum bilmiyorum :))
