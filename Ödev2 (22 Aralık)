@@ -1,0 +1,17 @@
+user = []
+sayac=0
+firstName = input("Adınızı giriniz: ")
+lastName = input("Soyadınızı giriniz: ")
+age = input("Yaşınızı giriniz: ")
+dateOfBirth = input("Yıl olarak doğum tarihinizi giriniz: ") 
+user=[firstName, lastName, age, dateOfBirth]
+aciklamalar=["Adı: ","Soyadı: ","Yaşı: ","Doğum Yılı: "]
+for bilgi in user:
+    print(aciklamalar[sayac],end="")
+    print(bilgi)
+    sayac+=1
+if int(age)<18:
+    print("You can't go out because it's too dangerous!")  # Ödevde eğer 18'den küçükse bunu yaz diyor. 
+else:
+    print("You can go out to the street :)") 
+    # Ödevde eğer 18'den büyükse bunu yaz diyor. Bu durumda ben olsam ikisi ni de if ile yapardım ama sanırım istenen bu şekilde. Umarım doğrudur :)
