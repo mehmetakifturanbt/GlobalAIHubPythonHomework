@@ -1,2 +1,2 @@
 # GlobalAIHubPythonHomework
-Global AI Hub Python Eğitim Ödev Klasörüm / 
+Global AI Hub Python Eğitim Ödev Klasörüm / Mehmet Akif TURAN
