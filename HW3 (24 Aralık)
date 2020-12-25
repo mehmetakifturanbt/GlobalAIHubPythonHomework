@@ -1,0 +1,136 @@
+# Python Adam Asmaca Oyunu - Mehmet Akif TURAN
+import random
+import time
+
+def kelimeAl():
+    kelime = random.choice(["beşik", "sandalye", "karpuz", "eleman", "havyar", "fanatik","maymun","denizanası"])
+    kelime = kelime.upper()
+    return kelime
+
+def oyna(kelime):
+    yerTutucu = "-" * len(kelime)
+    tahmin = False
+    tahminHarf = []
+    tahminKelime = []
+    deneme = 6
+    print(durum(deneme))
+    print("#"*(len(kelime)+4))
+    print(f"# {yerTutucu} #")
+    print("#"*(len(kelime)+4))
+    print("\n")
+    while not tahmin and deneme > 0:
+        kullaniciTahmin = input("Bir harf tahmin et ya da bulduysan kelimeyi yaz: ").upper()
+        if len(kullaniciTahmin) == 1 and kullaniciTahmin.isalpha():
+            if kullaniciTahmin in tahminHarf:
+                print("Bu harfi zaten tahmin ettin", kullaniciTahmin)
+            elif kullaniciTahmin not in kelime:
+                print(kullaniciTahmin, "harfi yok")
+                deneme -= 1
+                tahminHarf.append(kullaniciTahmin)
+            else:
+                print("Tebrikler!", kullaniciTahmin, "harfi var.")
+                tahminHarf.append(kullaniciTahmin)
+                kelimeSoruListele = list(yerTutucu)
+                endeksler = [i for i, harf in enumerate(kelime) if harf == kullaniciTahmin]
+                for akif in endeksler:
+                    kelimeSoruListele[akif] = kullaniciTahmin
+                yerTutucu = "".join(kelimeSoruListele)
+                if "-" not in yerTutucu:
+                    tahmin = True
+        elif len(kullaniciTahmin) == len(kelime) and kullaniciTahmin.isalpha():
+            if kullaniciTahmin in tahminKelime:
+                print(kullaniciTahmin, "kelimesini tahmin etmiştin", )
+            elif kullaniciTahmin != kelime:
+                print(kullaniciTahmin, "kelimesi değil")
+                deneme -= 1
+                tahminKelime.append(kullaniciTahmin)
+            else:
+                tahmin = True
+                yerTutucu = kelime
+        else:
+            print("Geçerli bir tahmin değil!")
+        print(durum(deneme))
+        print("#"*(len(kelime)+4))
+        print(f"# {yerTutucu} #")
+        print("#"*(len(kelime)+4))
+        print("\n")
+    if tahmin:
+        print("TEBRİKLER! Kelimeyi buldun.")
+    else:
+        print(f"ÜZGÜNÜM :( Hakların bitti ve kelimeyi bulamadın. Kelime {kelime} olacaktı.")
+
+def durum(deneme):
+    sahne = ["""
+   +---+
+   |   |
+   O   |
+  /|\  |
+  / \  |
+       |
+--------""","""
+   +---+
+   |   |
+   O   |
+  /|\  |
+  /    |
+       |
+--------""","""
+   +---+
+   |   |
+   O   |
+  /|\  |
+       |
+       |
+--------""","""
+
+   +---+
+   |   |
+   O   |
+  /|   |
+       |
+       |
+--------""","""
+   +---+
+   |   |
+   O   |
+   |   |
+       |
+       |
+--------""","""
+   +---+
+   |   |
+   O   |
+       |
+       |
+       |
+--------""","""
+   +---+
+   |   |
+       |
+       |
+       |
+       |
+--------"""]
+    return sahne[deneme]
+
+def main():
+    mesaj = "Adam Asmaca Oyununa Hoşgeldiniz.\nAdınızı Yazınız: "
+    for harf in mesaj:
+        print(harf,end="")
+        time.sleep(0.03)
+    kullanici=input("")
+    for harf in (f"Hoşgeldin {kullanici}"):
+        print(harf, end="")
+        time.sleep(0.03)
+    kelime = kelimeAl()
+    oyna(kelime)
+    
+
+
+
+if __name__ == "__main__":
+    main()
+    exit()
+
+
+
